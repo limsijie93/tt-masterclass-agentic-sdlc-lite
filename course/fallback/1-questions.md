@@ -1,5 +1,6 @@
 <!-- Fallback for beat 1, phase 1. A known-good `/refine-ticket` comment on Issue #2.
-     Use it if the live run misbehaves, or to check the live run against. -->
+     Use it if the live run misbehaves, or to check the live run against.
+     Next step: the Product Owner's answers are in 1-answers.md. -->
 
 ## Questions before this can be built
 

@@ -38,19 +38,27 @@ so read them in this order:
 
 0. **[`course/why.md`](course/why.md)**: why there are four layers, and the hole each one covers.
 1. **[PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1)**, *Files changed* tab: how a CI gate is added, in one reviewable PR.
-2. **[Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2)**: the vague ticket, then the agent's questions, the answers, and
-   the pruned spec in the comments.
+2. **[Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2)**: the vague ticket, then the agent's questions, the Product
+   Owner's answers ([`course/fallback/1-answers.md`](course/fallback/1-answers.md)), and the
+   pruned spec in the comments.
 3. **[PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3)**, *Commits* tab: the red CI run on the first commit, then green on the
    second.
 4. **PR #3**, *Conversation* tab: the agent review (overbuilt against the spec), then the
    human-focus comment.
-5. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server, run
-   `/review-pr <PR #3 URL>` and compare your result with
-   [`course/fallback/3-review.md`](course/fallback/3-review.md). On a repo you don't own, read
-   the draft and **don't post it**.
+5. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
+   - Run `/refine-ticket <Issue #2 URL>`. It stops after its questions, waiting for a human.
+     **That human is the Product Owner, and their answers are in
+     [`course/fallback/1-answers.md`](course/fallback/1-answers.md).** Give them in the session
+     and say *"Continue."* Compare the spec you get with
+     [`course/fallback/2-spec.md`](course/fallback/2-spec.md).
+   - Run `/review-pr <PR #3 URL>` and compare your result with
+     [`course/fallback/3-review.md`](course/fallback/3-review.md).
 
-Want your own CI runs? **Use this template → Include all branches**, then open a PR from
-`demo/promo-codes` in your copy.
+   On a repo you don't own, read each draft and **don't post it**.
+
+Want your own CI runs? **Use this template → Include all branches**. In your copy, open an issue
+from [`course/seed-issue.md`](course/seed-issue.md), run `/refine-ticket` on it and answer with
+[`1-answers.md`](course/fallback/1-answers.md), then open a PR from `demo/promo-codes`.
 
 ## Files
 
