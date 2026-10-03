@@ -1,14 +1,9 @@
 """Entry point. Translates a request into a service call. Never touches repo directly."""
 
-import json
-
-from shop import repo, service
+from shop import service
 
 
 def checkout(payload: dict) -> dict:
-    for code in payload.get("promo_codes", []):
-        if repo.get_promo_config(code) is None:
-            return {"status": 400, "error": f"unknown promo code: {code}"}
     try:
         total = service.order_total(payload["items"], payload.get("promo_codes"))
         return {"status": 200, "total_cents": total}
