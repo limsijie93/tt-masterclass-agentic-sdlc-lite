@@ -13,6 +13,8 @@ flowchart LR
   d2["unused import<br/>layer violation<br/>untested code"] --x C
   d3["overbuilt:<br/>registry, stacking, expiry"] --x A
   d4["business calls:<br/>rounding, case, API shape"] --x H
+  classDef defect fill:#fdecea,stroke:#c0392b,stroke-dasharray:4 3,color:#7b241c
+  class d1,d2,d3,d4 defect
 ```
 
 Each defect in the diagram above is real, and each one appears in this repo's demo. Each one got
