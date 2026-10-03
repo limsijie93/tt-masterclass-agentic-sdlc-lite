@@ -1,0 +1,37 @@
+# Beat 2: deterministic hygiene. Same input, same verdict, every time, so it is allowed to BLOCK.
+# Make `hygiene` a required status check in branch protection.
+# No agent runs here. Judgement (beats 3 and 4) happens in Claude Code / Cowork, and only comments.
+
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+
+      # `!cancelled()` lets every check report even when an earlier one fails,
+      # so one red run shows every problem rather than the first.
+      - name: Lint and format
+        if: ${{ !cancelled() }}
+        run: ruff check . && ruff format --check .
+
+      - name: Architecture (api -> service -> repo)
+        if: ${{ !cancelled() }}
+        run: lint-imports
+
+      - name: Tests, coverage >= 90%
+        if: ${{ !cancelled() }}
+        run: pytest -q --cov=shop
