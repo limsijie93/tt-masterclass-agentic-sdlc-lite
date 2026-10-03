@@ -1,4 +1,6 @@
-<!-- Paste the title and body below into a new GitHub issue. It should be Issue #2. -->
+<!-- The ticket as the Product Owner filed it. Paste the title and body below into a new
+     GitHub issue (it is Issue #2 in this repo). Their answers to the agent's questions are in
+     answers.md, next to this file. -->
 
 **Title:** Promo codes at checkout
 

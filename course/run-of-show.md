@@ -14,14 +14,15 @@ They are here so the setup can be rebuilt from scratch.
 
 1. **PR #1**, branch `ci/hygiene-gate` → `main`: adds the CI gate. Let it go green, then merge it.
 2. **Settings → Branches**: protect `main` and make the `hygiene` check required. Nothing else.
-3. Open **Issue #2** from [`seed-issue.md`](seed-issue.md).
+3. Open **Issue #2** from [`product-owner/ticket.md`](product-owner/ticket.md).
 4. Push only the first commit of `demo/promo-codes` and open **PR #3** into `main` with the body
    from [`seed-pr.md`](seed-pr.md). Wait for the red run, then push the second commit and wait
    for green.
 5. In Claude Code (or Cowork), connect the GitHub MCP server, open this repo, and check that
    `/refine-ticket`, `/review-pr` and `/pr-focus` are listed. In Cowork, upload the three
    `SKILL.md` folders under `.claude/skills/` as skills.
-6. Have [`fallback/`](fallback/) open in a tab. Every beat has a known-good output there.
+6. Have [`expected-outputs/`](expected-outputs/) open in a tab. Every beat has a known-good output
+   there, to paste if a live run misbehaves.
 
 ## The 90 minutes
 
@@ -38,7 +39,7 @@ They are here so the setup can be rebuilt from scratch.
 | 75–90 | **Q&A 2**: open floor | [prepared answers](#prepared-answers) |
 
 **Running late?** Cut Q&A 1 and fold its questions into Q&A 2. Don't cut a beat. If an agent run
-stalls for more than 60 seconds, switch to the fallback file for that beat.
+stalls for more than 60 seconds, switch to the expected output for that beat.
 
 ---
 
@@ -60,8 +61,8 @@ stalls for more than 60 seconds, switch to the fallback file for that beat.
 |---|---|
 | The ticket | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) |
 | The skill, if anyone asks what it does | [`refine-ticket/SKILL.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.claude/skills/refine-ticket/SKILL.md) |
-| Answers to give (you play Marketing) | [`fallback/1-answers.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/fallback/1-answers.md) |
-| Fallback output | [`1-questions.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/fallback/1-questions.md), [`2-spec.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/fallback/2-spec.md) |
+| Answers to give (you play the Product Owner) | [`product-owner/answers.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/product-owner/answers.md) |
+| Expected output | [`1-questions.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/expected-outputs/1-questions.md), [`2-spec.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/expected-outputs/2-spec.md) |
 
 1. Fresh session. Type
    `/refine-ticket https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2`
@@ -69,7 +70,7 @@ stalls for more than 60 seconds, switch to the fallback file for that beat.
    - every question has `assumes:`, the guess an agent would otherwise make silently
    - it did not answer its own questions, and that stop is the whole mechanism
 3. Let it post the questions to the issue. Reply on the issue with the answers from
-   `1-answers.md`, then tell the session *"The answers are on the issue. Continue."*
+   `product-owner/answers.md`, then tell the session *"The answers are on the issue. Continue."*
 4. It drafts the spec. Scroll to **Out of scope**: four things the ticket hinted at, cut, each
    with a reason. Then **Still open for human judgement**: rounding and case sensitivity. Those
    come back in beat 4.
@@ -128,7 +129,7 @@ docs that no check enforces?"*
 | The overbuilding, if the agent's output needs backing up | [`discounts.py` L8–38](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/565a5277bd08c763501bd849449fc073312e898e/shop/discounts.py#L8-L38) (ABC, fixed-amount rule, registry) · [L45–46](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/565a5277bd08c763501bd849449fc073312e898e/shop/discounts.py#L45-L46) (expiry, stacking) |
 | What the spec cut | [`specs/2.md` L14–18](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/565a5277bd08c763501bd849449fc073312e898e/specs/2.md#L14-L18) |
 | The skill | [`review-pr/SKILL.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.claude/skills/review-pr/SKILL.md) |
-| Fallback output | [`3-review.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/fallback/3-review.md) |
+| Expected output | [`3-review.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/expected-outputs/3-review.md) |
 
 1. **New session**, never the one that wrote the code. Type
    `/review-pr https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3`
@@ -150,7 +151,7 @@ docs that no check enforces?"*
 | API takes a list | [`api.py` L8](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/565a5277bd08c763501bd849449fc073312e898e/shop/api.py#L8) |
 | Human-only checkboxes | [PR template](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.github/pull_request_template.md) |
 | The skill | [`pr-focus/SKILL.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.claude/skills/pr-focus/SKILL.md) |
-| Fallback output | [`4-focus.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/fallback/4-focus.md) |
+| Expected output | [`4-focus.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/course/expected-outputs/4-focus.md) |
 
 1. Type `/pr-focus https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3`
 2. It says what is already covered (CI, agent review) so the human can skip it, then lists

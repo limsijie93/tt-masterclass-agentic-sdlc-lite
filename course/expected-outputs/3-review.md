@@ -1,4 +1,5 @@
-<!-- Fallback for beat 3. A known-good `/review-pr` comment on PR #3 (green commit).
+<!-- Expected output for beat 3: a known-good `/review-pr` comment on PR #3 (green commit).
+     Compare your run against it. Presenters: paste it if a live run misbehaves.
      Line numbers are against branch demo/promo-codes. -->
 
 ## Agent review: does this build the spec?

@@ -1,4 +1,5 @@
-<!-- Fallback for beat 4. A known-good `/pr-focus` comment on PR #3 (green commit). -->
+<!-- Expected output for beat 4: a known-good `/pr-focus` comment on PR #3 (green commit).
+     Compare your run against it. Presenters: paste it if a live run misbehaves. -->
 
 ## Where to focus your review
 

@@ -1,3 +1,6 @@
+<!-- Expected output for beat 1, phase 2: a known-good spec from `/refine-ticket`, written from
+     the Product Owner's answers in ../product-owner/answers.md. Compare your run against it. -->
+
 ## Spec: Promo codes at checkout
 
 **Goal:** A customer can enter one promo code at checkout and get a percentage off the order

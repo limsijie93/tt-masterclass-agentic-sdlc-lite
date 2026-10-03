@@ -1,6 +1,6 @@
-<!-- Fallback for beat 1, phase 1. A known-good `/refine-ticket` comment on Issue #2.
-     Use it if the live run misbehaves, or to check the live run against.
-     Next step: the Product Owner's answers are in 1-answers.md. -->
+<!-- Expected output for beat 1, phase 1: a known-good `/refine-ticket` comment on Issue #2.
+     Compare your run against it. Presenters: paste it if a live run misbehaves.
+     Next step: the Product Owner's answers are in ../product-owner/answers.md. -->
 
 ## Questions before this can be built
 
