@@ -36,6 +36,7 @@ Nothing to install, no scripts to run.
 There is no separate learner branch. The lesson is spread across `main`, the issue and the PRs,
 so read them in this order:
 
+0. **[`course/why.md`](course/why.md)**: why there are four layers, and the hole each one covers.
 1. **[PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1)**, *Files changed* tab: how a CI gate is added, in one reviewable PR.
 2. **[Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2)**: the vague ticket, then the agent's questions, the answers, and
    the pruned spec in the comments.
@@ -60,6 +61,7 @@ tests/
 .github/              CI and the PR template
 specs/                specs live here once written
 course/
+  why.md              why four layers: the Swiss cheese model, with sources
   run-of-show.md      the 90 minutes, beat by beat, plus setup
   seed-issue.md       Issue #2
   seed-pr.md          PR #3 body

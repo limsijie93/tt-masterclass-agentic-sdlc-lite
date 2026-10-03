@@ -27,33 +27,34 @@ They are here so the setup can be rebuilt from scratch.
 
 | Time | Segment | Open this |
 |---|---|---|
-| 0–8 | Why | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) |
-| 8–25 | **1 · Refine the ticket** | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) + session |
-| 25–28 | Bridge | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) |
-| 28–40 | **2 · Deterministic hygiene** | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [red run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208), [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
-| 40–45 | **Q&A 1**: planning and CI | — |
-| 45–58 | **3 · Agentic judgement** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + **new** session |
-| 58–69 | **4 · First pass + human focus** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + session |
-| 69–73 | Close | the table at the bottom |
-| 73–88 | **Q&A 2**: open floor | [prepared answers](#prepared-answers) |
-| 88–90 | Buffer | — |
+| 0–10 | Why | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2), then [`why.md`](why.md) |
+| 10–27 | **1 · Refine the ticket** | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) + session |
+| 27–30 | Bridge | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) |
+| 30–42 | **2 · Deterministic hygiene** | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [red run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208), [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
+| 42–47 | **Q&A 1**: planning and CI | — |
+| 47–60 | **3 · Agentic judgement** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + **new** session |
+| 60–71 | **4 · First pass + human focus** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + session |
+| 71–75 | Close | the table at the bottom |
+| 75–90 | **Q&A 2**: open floor | [prepared answers](#prepared-answers) |
 
 **Running late?** Cut Q&A 1 and fold its questions into Q&A 2. Don't cut a beat. If an agent run
 stalls for more than 60 seconds, switch to the fallback file for that beat.
 
 ---
 
-### Why (0–8)
+### Why (0–10)
 
-Open [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2). Read it
-aloud and land on *"flexible so we can do all kinds of deals"*.
+1. Open [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2). Read it
+   aloud and land on *"flexible so we can do all kinds of deals"*. Hand this to an agent as-is and
+   it won't ask anything. It guesses, confidently, and builds for every case the ticket hints at.
+2. Open [`why.md`](why.md) and show the **diagram**: four layers, and a real defect from today's
+   demo stopped at each one. *"Every layer has holes. The trick is stacking layers whose holes
+   don't line up."*
+3. Show the **holes table**, one row per beat of today. This is the agenda.
+4. Show the **Semgrep numbers**: the same prompt gives different results, and only 14–18% of
+   findings are true positives. That is why the agent layer comments and never blocks.
 
-- Hand this to an agent as-is and it won't ask anything. It guesses, confidently, and it builds
-  for every case the ticket hints at.
-- The plan for today: four layers. **Plan** before the code, **CI blocks** what's mechanical,
-  **an agent comments** on whether it's the right thing, **a human decides**.
-
-### Beat 1: refine the ticket (8–25)
+### Beat 1: refine the ticket (10–27)
 
 | Show | Link |
 |---|---|
@@ -74,7 +75,7 @@ aloud and land on *"flexible so we can do all kinds of deals"*.
    come back in beat 4.
 5. Let it post the spec to the issue.
 
-### Bridge (25–28)
+### Bridge (27–30)
 
 Open [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3). Say *"we
 handed that spec to an agent, and it opened a PR like this one."* (PR #3 was prepared in advance,
@@ -84,7 +85,7 @@ Its description proudly lists a rule registry, stacking and expiry. Plant the qu
 ask for that?*, and don't answer it yet. The spec it implements is
 [`specs/2.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/565a5277bd08c763501bd849449fc073312e898e/specs/2.md).
 
-### Beat 2: deterministic hygiene (28–40)
+### Beat 2: deterministic hygiene (30–42)
 
 | Show | Link |
 |---|---|
@@ -113,13 +114,13 @@ ask for that?*, and don't answer it yet. The spec it implements is
 4. The point: these checks give the same verdict every time, so they are allowed to **block**.
    Spend no human or agent attention on anything they can catch.
 
-### Q&A 1 (40–45)
+### Q&A 1 (42–47)
 
 Take questions on planning and CI only. Park anything about agent review until beat 3, and
 anything else until Q&A 2. If the room is quiet, ask them: *"What's one rule in your team's
 docs that no check enforces?"*
 
-### Beat 3: agentic judgement (45–58)
+### Beat 3: agentic judgement (47–60)
 
 | Show | Link |
 |---|---|
@@ -139,7 +140,7 @@ docs that no check enforces?"*
 4. It **comments**; it never approves or blocks. Agents are non-deterministic, and a gate that
    flakes gets switched off within a week.
 
-### Beat 4: first pass + human focus (58–69)
+### Beat 4: first pass + human focus (60–71)
 
 | Show | Link |
 |---|---|
@@ -160,7 +161,7 @@ docs that no check enforces?"*
 3. It does not answer them. Show the PR description's **human judgement** checkboxes. Those are
    the reviewer's to tick, and nobody else's.
 
-### Close (69–73)
+### Close (71–75)
 
 | Layer | Who | Verdict | Lives in |
 |---|---|---|---|
@@ -172,10 +173,13 @@ docs that no check enforces?"*
 
 Never spend a layer's attention on something the layer below can catch.
 
+Go back to the [holes table in `why.md`](why.md#every-layer-has-a-hole). Every row has now been
+shown live: each layer stopped one real defect that got through the layers before it.
+
 End on the repo link, for anyone who wants to replay it:
 **https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite** (README → *Learn on your own*).
 
-### Q&A 2 (73–88)
+### Q&A 2 (75–90)
 
 Open floor. The answers below are short on purpose: say the one line, then show the link.
 
