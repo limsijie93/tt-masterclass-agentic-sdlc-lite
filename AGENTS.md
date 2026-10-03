@@ -8,10 +8,12 @@ Tiny checkout service used to demo the agentic SDLC. Python 3.12, stdlib only.
 - `shop/service.py`: business rules.
 - `shop/repo.py`: storage (in-memory dicts). Prices are integer cents.
 
-## Commands
+## Commands (CI runs exactly these)
 
 ```
-pytest -q
+ruff check . && ruff format --check .
+lint-imports
+pytest -q --cov=shop        # fails under 90% coverage
 ```
 
 ## Rules
