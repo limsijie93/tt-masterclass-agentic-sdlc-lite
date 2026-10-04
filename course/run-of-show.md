@@ -13,7 +13,9 @@ Steps 1–4 are already done on
 They are here so the setup can be rebuilt from scratch.
 
 1. **PR #1**, branch `ci/hygiene-gate` → `main`: adds the CI gate. Let it go green, then merge it.
-2. **Settings → Branches**: protect `main` and make the `hygiene` check required. Nothing else.
+2. **Settings → Rules → Rulesets**: one branch ruleset, *CI hygiene must pass*, that requires the
+   `hygiene` check on `main` and `demo/**`, with repository admins allowed to bypass. Nothing else.
+   `demo/**` matters: PR #5 targets PR #4's branch, and it should show "Merging is blocked".
 3. Open **Issue #2** from [`product-owner/ticket.md`](product-owner/ticket.md).
 4. Push only the first commit of `demo/promo-codes` and open **PR #3** into `main` with the body
    from [`seed-pr.md`](seed-pr.md). Wait for the red run, then push the second commit and wait
