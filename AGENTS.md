@@ -24,3 +24,10 @@ pytest -q --cov=shop        # fails under 90% coverage
   no config for a value that never changes.
 - Every behaviour change ships with a test.
 - Never edit a test just to make it pass.
+
+## Domain rules
+
+Decisions a human made in review. The next ticket needs them: don't re-ask, don't re-decide.
+
+- When a money calculation leaves a fraction of a cent, it goes to the customer: a discount
+  rounds up (`-(-total * percent // 100)`), a charge rounds down. Decided in review of #3 (#2).
