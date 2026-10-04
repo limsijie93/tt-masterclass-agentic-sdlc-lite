@@ -87,6 +87,31 @@ Want your own CI runs? **Use this template → Include all branches**. In your c
 from [`course/product-owner/ticket.md`](course/product-owner/ticket.md), run `/refine-ticket` on it and answer with
 [`answers.md`](course/product-owner/answers.md), then open a PR from `demo/promo-codes`.
 
+## Answer keys and model solutions
+
+Agent output varies run to run. Compare the substance, not the wording.
+
+**The demo** (Issue #2 → PR #3)
+
+| Step | What to compare against |
+|---|---|
+| `/refine-ticket`: the questions | [`1-questions.md`](course/expected-outputs/1-questions.md) |
+| The Product Owner's answers | [`answers.md`](course/product-owner/answers.md) |
+| `/refine-ticket`: the spec | [`2-spec.md`](course/expected-outputs/2-spec.md) |
+| `/review-pr` on PR #3 | [`3-review.md`](course/expected-outputs/3-review.md) |
+| `/pr-focus` on PR #3 | [`4-focus.md`](course/expected-outputs/4-focus.md) |
+| **Model solution** for PR #3 | [PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4), cut to the spec ([compare with PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/compare/demo/promo-codes...demo/promo-codes-to-spec)) |
+| `/harvest` on #3, #4, #5 | [`5-harvest.md`](course/expected-outputs/5-harvest.md), and the PR it opened: [PR #6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/6) |
+
+**The labs** ([`labs/`](labs/README.md))
+
+| Lab | Answer key | Model solution |
+|---|---|---|
+| [01 · Refine a ticket](labs/01-refine/lab.md) | [`expected-spec.md`](labs/01-refine/expected-spec.md) | the spec itself |
+| [02 · Make a rule bite](labs/02-make-a-rule-bite/lab.md) | [`expected.md`](labs/02-make-a-rule-bite/expected.md) | one line in `pyproject.toml`, shown in the answer key |
+| [03 · Review an overbuilt PR](labs/03-review-overbuilt/lab.md) | [`expected-review.md`](labs/03-review-overbuilt/expected-review.md), [`expected-focus.md`](labs/03-review-overbuilt/expected-focus.md) | [`labs/03-qty-limit-solution`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/tree/labs/03-qty-limit-solution) ([compare with the overbuilt version](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/compare/labs/03-qty-limit-overbuilt...labs/03-qty-limit-solution)) |
+| [04 · Harvest, second sighting](labs/04-harvest/lab.md) | [`expected.md`](labs/04-harvest/expected.md) | depends on your own review: judged by the checklist |
+
 ## Files
 
 ```

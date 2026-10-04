@@ -9,7 +9,7 @@ first sighting. Lab 03's PR overbuilt again. This time the ledger can count it.
 ## Steps
 
 1. **Give your repo a memory.** In your copy, open a pull request from `harvest/2` into `main`
-   and merge it. That's the harvest from the demo. Your `main` now has:
+   and merge it. That's the harvest from the demo, the same change as [PR #6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/6). Your `main` now has:
    - `harvest/ledger.md` with 14 findings from the demo, including *"agent built ABC + registry +
      factory for one percentage rule … [logged: first sighting]"*
    - the **Scope** CI check, the rounding domain rule in `AGENTS.md`, and the sharper
