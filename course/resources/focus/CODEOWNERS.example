@@ -1,0 +1,12 @@
+# CODEOWNERS: GitHub asks these people to review any PR that changes matching files.
+# To use it: rename to CODEOWNERS and put it in .github/. With a ruleset that requires
+# code-owner review, the PR can't merge until one of them approves.
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Business rules: money and promo logic need someone who owns those rules
+/shop/service.py    @your-org/payments
+/shop/repo.py       @your-org/payments
+
+# The CI gate and the agent skills: changes need the people who run the process
+/.github/workflows/ @your-org/platform
+/.claude/skills/    @your-org/platform

@@ -1,0 +1,19 @@
+# Pre-commit hooks: the same checks as CI, run on the developer's laptop at `git commit`.
+# To use it: rename to .pre-commit-config.yaml at the repo root, then `pip install pre-commit`
+# and `pre-commit install`. Fastest feedback, but skippable with `git commit --no-verify`,
+# which is why the required CI check stays the one that blocks.
+# Docs: https://pre-commit.com
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.10  # keep in step with pyproject.toml
+    hooks:
+      - id: ruff-check    # lint, same rules as CI
+      - id: ruff-format   # format
+  - repo: local
+    hooks:
+      - id: lint-imports
+        name: Architecture (api -> service -> repo)
+        entry: lint-imports
+        language: system
+        pass_filenames: false
+        types: [python]

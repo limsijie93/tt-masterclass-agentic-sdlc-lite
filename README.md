@@ -65,7 +65,10 @@ so read them in this order:
 7. **[PR #6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/6)**, *Description* and *Files changed*: the harvest. Read what it
    proposed and, just as important, what it only logged. Then open
    [`harvest/ledger.md`](harvest/ledger.md) on its branch: the memory the next harvest reads.
-8. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
+8. **Go further: [`course/resources/`](course/resources/README.md).** Every option on the
+   discussion slides, with a template, an example or a link: a Jira ticket template and a GitHub
+   issue form, GitHub Spec Kit, pre-commit and agent hooks, review bots, CODEOWNERS.
+9. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
    - Run `/refine-ticket <Issue #2 URL>`. It stops after its questions, waiting for a human.
      **That human is the Product Owner, and their answers are in
      [`course/product-owner/answers.md`](course/product-owner/answers.md).** Give them in the session
@@ -87,6 +90,7 @@ shop/                 the app: api -> service -> repo, ~30 lines
 tests/
 .claude/skills/       the four agent skills, each a single SKILL.md
 harvest/ledger.md     every finding /harvest has read, proposed or not
+.github/ISSUE_TEMPLATE/  a GitHub issue form: requesters fill required fields
 .github/              CI and the PR template
 specs/                specs live here once written
 course/
@@ -95,6 +99,7 @@ course/
   seed-pr.md          PR #3 body
   product-owner/      the Product Owner's ticket (Issue #2) and answers to the agent's questions
   expected-outputs/   what each agent should produce, to compare your run against
+  resources/          every option on the discussion slides: templates, examples, links
 ```
 
 **Presenting?** Start with [`course/run-of-show.md`](course/run-of-show.md).

@@ -80,7 +80,7 @@ stalls for more than 60 seconds, switch to the expected output for that beat.
    come back in beat 4.
 5. Let it post the spec to the issue.
 
-**Discussion (~1 min, deck: *Four ways to build the refine layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?", 1–4), then the chat prompt: *which one does your team already half-do?* Read two answers aloud, then land it: these stack. An issue form collects the fields; the agent finds what's still missing.
+**Discussion (~1 min, deck: *Four ways to build the refine layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *which one does your team already half-do?* Read two answers aloud, then land it: these stack. An issue form collects the fields; the agent finds what's still missing.
 
 ### Bridge (28–31)
 
@@ -124,7 +124,7 @@ ask for that?*, and don't answer it yet. The spec it implements is
 4. The point: these checks give the same verdict every time, so they are allowed to **block**.
    Spend no human or agent attention on anything they can catch.
 
-**Discussion (~2 min, deck: *Four places to run the hygiene layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?", 1–4), then the chat prompt: *in a legacy repo, what order would you roll these out?* Read two answers aloud, then land it: same rule, several enforcement points. CI is the one nobody can skip, so it's the one that blocks.
+**Discussion (~2 min, deck: *Three places to run the hygiene layer*).** Three places the same checks can run, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *where does your team run checks today?* Read two answers aloud, then land it: same rule, several enforcement points. CI is the one nobody can skip, so it's the one that blocks.
 
 ### Q&A 1 (45–50)
 
@@ -152,7 +152,7 @@ docs that no check enforces?"*
 4. It **comments**; it never approves or blocks. Agents are non-deterministic, and a gate that
    flakes gets switched off within a week.
 
-**Discussion (~1 min, deck: *Four ways to build the judgement layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?", 1–4), then the chat prompt: *what would make your team mute a review bot?* Read two answers aloud, then land it: keep it advisory whatever runs it. Only the deterministic spec-diff may block.
+**Discussion (~1 min, deck: *Four ways to build the judgement layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *what would make your team mute a review bot?* Read two answers aloud, then land it: keep it advisory whatever runs it. Only the deterministic spec-diff may block.
 
 ### Beat 4: first pass + human focus (64–77)
 
@@ -174,7 +174,7 @@ docs that no check enforces?"*
    - should the public API promise a list of codes?
 3. It does not answer them. Show the PR description's **human judgement** checkboxes. Those are
    the reviewer's to tick, and nobody else's.
-4. **Discussion (~2 min, deck: *Four ways to focus human review*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?", 1–4), then the chat prompt: *name one decision in your codebase that must stay human.* Read two answers aloud, then land it: an agent can point, but only these people can decide.
+4. **Discussion (~2 min, deck: *Four ways to focus human review*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *name one decision in your codebase that must stay human.* Read two answers aloud, then land it: an agent can point, but only these people can decide.
 5. **Coda (1–2 min): [PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4).** *"Here's what it looked like after the human
    decided."* Show the comparison table in its description: 162 lines became 46, and the two
    decisions from the review are in the code. CI ran on its own when the PR opened, and it's green.

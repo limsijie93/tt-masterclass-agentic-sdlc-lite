@@ -1,0 +1,56 @@
+# A GitHub issue form: "New issue" opens this form, and it can't be submitted until every
+# required field is filled. It checks that the fields exist, not that they're good:
+# /refine-ticket still reads what's in them. Jira equivalent: course/resources/refine/jira-ticket-template.md
+name: Feature request
+description: Ask for a change. Fill every required field so it can be refined and built.
+title: "[Feature] "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Five short answers. Write for someone who has never seen this part of the product.
+        "TBD" is allowed, but it becomes the first question in refinement.
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: Who needs what, and why? One or two sentences.
+      placeholder: "Customers can enter a promo code at checkout to get a discount, for next quarter's campaigns."
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: How will we know it works? One check per line, each something a test could prove.
+      placeholder: |
+        - SAVE10 on a $52.00 order makes the total $46.80
+        - An unknown code is rejected with a clear message
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: What is this NOT? The field teams skip most, and the one that prevents the most rework.
+      placeholder: |
+        - More than one code per order
+        - Codes that expire automatically
+    validations:
+      required: true
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Decisions you've already made
+      description: Business rules a builder would otherwise guess (money, limits, wording, edge cases).
+      placeholder: "Round discounts in the customer's favour. Codes are not case-sensitive."
+    validations:
+      required: false
+  - type: input
+    id: owner
+    attributes:
+      label: Who answers questions about this?
+      placeholder: "Dana (Marketing)"
+    validations:
+      required: true
