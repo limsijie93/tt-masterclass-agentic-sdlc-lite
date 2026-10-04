@@ -47,10 +47,10 @@ so read them in this order:
    second.
 4. **PR #3**, *Conversation* tab: the agent review (overbuilt against the spec), then the
    human-focus comment.
-4b. **[PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4)**, *Files changed* tab: what PR #3 should have been. Compare the
+5. **[PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4)**, *Files changed* tab: what PR #3 should have been. Compare the
    two diffs: the rule engine, stacking and expiry are gone, and the reviewer's two decisions
    (case-insensitive codes, round in the customer's favour) are in the code and in `specs/2.md`.
-5. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
+6. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
    - Run `/refine-ticket <Issue #2 URL>`. It stops after its questions, waiting for a human.
      **That human is the Product Owner, and their answers are in
      [`course/product-owner/answers.md`](course/product-owner/answers.md).** Give them in the session
