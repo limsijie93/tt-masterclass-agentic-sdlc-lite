@@ -34,8 +34,13 @@ it built the right thing.
 
 ## Answer key
 
-[`expected-review.md`](expected-review.md) and [`expected-focus.md`](expected-focus.md): real
-outputs of the two skills on this branch. Yours will be worded differently.
+- [`expected-review.md`](expected-review.md) and [`expected-focus.md`](expected-focus.md): real
+  outputs of the two skills on this branch. Yours will be worded differently.
+- **Model solution:** the branch `labs/03-qty-limit-solution`, which is what this PR should have
+  been. [Compare it with the overbuilt version](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/compare/labs/03-qty-limit-overbuilt...labs/03-qty-limit-solution):
+  61 lines of code and tests become 29, the missing criterion-3 test is added, and one review
+  decision is applied (an unknown product is reported before the limit). In your copy, open a PR
+  from it and run `/review-pr`: expect no findings.
 
 ## Why it matters
 
