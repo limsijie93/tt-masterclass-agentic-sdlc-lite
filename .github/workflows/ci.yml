@@ -4,8 +4,11 @@
 
 name: ci
 
+# Runs automatically: no one has to start it. Every pull request gets a run when it is opened,
+# on every new push to it, and when it is reopened. Pushes to main run it too.
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
   push:
     branches: [main]
 
