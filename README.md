@@ -40,6 +40,8 @@ Nothing to install, no scripts to run.
   `refine-ticket`. The other 11 findings are logged, not proposed: six because CI already catches
   them. A human merges it, and the next ticket starts easier.
 
+**Take-home labs:** [`labs/`](labs/README.md) has four, one per idea, on a fresh ticket.
+
 **CI green is not the same as the right thing. And every review should leave the repo a little
 harder to get wrong.**
 
@@ -68,7 +70,9 @@ so read them in this order:
 8. **Go further: [`course/resources/`](course/resources/README.md).** Every option on the
    discussion slides, with a template, an example or a link: a Jira ticket template and a GitHub
    issue form, GitHub Spec Kit, pre-commit and agent hooks, review bots, CODEOWNERS.
-9. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
+9. **Practise: [`labs/`](labs/README.md).** Four take-home labs on a fresh ticket: refine it,
+   make a rule bite, review an overbuilt PR, and harvest a second sighting.
+10. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
    - Run `/refine-ticket <Issue #2 URL>`. It stops after its questions, waiting for a human.
      **That human is the Product Owner, and their answers are in
      [`course/product-owner/answers.md`](course/product-owner/answers.md).** Give them in the session
@@ -100,6 +104,7 @@ course/
   product-owner/      the Product Owner's ticket (Issue #2) and answers to the agent's questions
   expected-outputs/   what each agent should produce, to compare your run against
   resources/          every option on the discussion slides: templates, examples, links
+labs/                 four take-home labs, each with steps, a checklist and an answer key
 ```
 
 **Presenting?** Start with [`course/run-of-show.md`](course/run-of-show.md).
