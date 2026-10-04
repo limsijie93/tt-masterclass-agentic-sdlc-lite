@@ -28,6 +28,8 @@ Nothing to install, no scripts to run.
   stacking and expiry. None of that was asked for.
 - **`/review-pr`** catches the overbuilding against the spec. **`/pr-focus`** points the human at
   the questions only they can answer: rounding, case sensitivity, API shape.
+- **[PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4)** is the same feature after review: cut to the spec, with the
+  reviewer's decisions applied. 46 lines of code and tests instead of 162, and CI is green.
 
 **CI green is not the same as the right thing.**
 
@@ -45,6 +47,9 @@ so read them in this order:
    second.
 4. **PR #3**, *Conversation* tab: the agent review (overbuilt against the spec), then the
    human-focus comment.
+4b. **[PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4)**, *Files changed* tab: what PR #3 should have been. Compare the
+   two diffs: the rule engine, stacking and expiry are gone, and the reviewer's two decisions
+   (case-insensitive codes, round in the customer's favour) are in the code and in `specs/2.md`.
 5. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
    - Run `/refine-ticket <Issue #2 URL>`. It stops after its questions, waiting for a human.
      **That human is the Product Owner, and their answers are in

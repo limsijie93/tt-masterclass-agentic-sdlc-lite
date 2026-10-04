@@ -161,6 +161,9 @@ docs that no check enforces?"*
    - should the public API promise a list of codes?
 3. It does not answer them. Show the PR description's **human judgement** checkboxes. Those are
    the reviewer's to tick, and nobody else's.
+4. **Coda (1–2 min): [PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4).** *"Here's what it looked like after the human
+   decided."* Show the comparison table in its description: 162 lines became 46, and the two
+   decisions from the review are in the code. CI ran on its own when the PR opened, and it's green.
 
 ### Close (71–75)
 
