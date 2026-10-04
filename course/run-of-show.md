@@ -1,6 +1,6 @@
 # Run of show: 90 minutes, pure demo
 
-One ticket, four beats, two Q&A slots. Everything happens in an **Issue**, a **PR**, **CI**, and a
+One ticket, four beats, a discussion after each beat, two Q&A slots. Everything happens in an **Issue**, a **PR**, **CI**, and a
 Claude Code or Cowork session connected to the **GitHub MCP server**.
 
 Every demo below links to the exact page to have open. Code links are pinned to a commit, so the
@@ -31,16 +31,17 @@ They are here so the setup can be rebuilt from scratch.
 | Time | Segment | Open this |
 |---|---|---|
 | 0–10 | Why | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2), then [`why.md`](why.md) |
-| 10–27 | **1 · Refine the ticket** | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) + session |
-| 27–30 | Bridge | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) |
-| 30–42 | **2 · Deterministic hygiene** | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [red run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208), [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
-| 42–47 | **Q&A 1**: planning and CI | — |
-| 47–60 | **3 · Agentic judgement** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + **new** session |
-| 60–71 | **4 · First pass + human focus** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + session |
-| 71–75 | Close | the table at the bottom |
-| 75–90 | **Q&A 2**: open floor | [prepared answers](#prepared-answers) |
+| 10–29 | **1 · Refine the ticket** | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) + session |
+| 29–32 | Bridge | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) |
+| 32–47 | **2 · Deterministic hygiene** | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [red run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208), [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
+| 47–52 | **Q&A 1**: planning and CI | — |
+| 52–67 | **3 · Agentic judgement** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + **new** session |
+| 67–81 | **4 · First pass + human focus** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + session |
+| 81–85 | Close | the table at the bottom |
+| 85–90 | **Q&A 2**: open floor | [prepared answers](#prepared-answers) |
 
-**Running late?** Cut Q&A 1 and fold its questions into Q&A 2. Don't cut a beat. If an agent run
+**Running late?** Shorten each discussion slide to one poll and one chat answer, then cut Q&A 1
+and fold its questions into Q&A 2. Don't cut a beat. If an agent run
 stalls for more than 60 seconds, switch to the expected output for that beat.
 
 ---
@@ -57,7 +58,7 @@ stalls for more than 60 seconds, switch to the expected output for that beat.
 4. Show the **Semgrep numbers**: the same prompt gives different results, and only 14–18% of
    findings are true positives. That is why the agent layer comments and never blocks.
 
-### Beat 1: refine the ticket (10–27)
+### Beat 1: refine the ticket (10–29)
 
 | Show | Link |
 |---|---|
@@ -78,7 +79,9 @@ stalls for more than 60 seconds, switch to the expected output for that beat.
    come back in beat 4.
 5. Let it post the spec to the issue.
 
-### Bridge (27–30)
+**Discussion (~2 min, deck: *Four ways to build the refine layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?", 1–4), then the chat prompt: *which one does your team already half-do?* Read two answers aloud, then land it: these stack. An issue form collects the fields; the agent finds what's still missing.
+
+### Bridge (29–32)
 
 Open [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3). Say *"we
 handed that spec to an agent, and it opened a PR like this one."* (PR #3 was prepared in advance,
@@ -88,7 +91,7 @@ Its description proudly lists a rule registry, stacking and expiry. Plant the qu
 ask for that?*, and don't answer it yet. The spec it implements is
 [`specs/2.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/565a5277bd08c763501bd849449fc073312e898e/specs/2.md).
 
-### Beat 2: deterministic hygiene (30–42)
+### Beat 2: deterministic hygiene (32–47)
 
 | Show | Link |
 |---|---|
@@ -120,13 +123,15 @@ ask for that?*, and don't answer it yet. The spec it implements is
 4. The point: these checks give the same verdict every time, so they are allowed to **block**.
    Spend no human or agent attention on anything they can catch.
 
-### Q&A 1 (42–47)
+**Discussion (~3 min, deck: *Four places to run the hygiene layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?", 1–4), then the chat prompt: *in a legacy repo, what order would you roll these out?* Read two answers aloud, then land it: same rule, several enforcement points. CI is the one nobody can skip, so it's the one that blocks.
+
+### Q&A 1 (47–52)
 
 Take questions on planning and CI only. Park anything about agent review until beat 3, and
 anything else until Q&A 2. If the room is quiet, ask them: *"What's one rule in your team's
 docs that no check enforces?"*
 
-### Beat 3: agentic judgement (47–60)
+### Beat 3: agentic judgement (52–67)
 
 | Show | Link |
 |---|---|
@@ -146,7 +151,9 @@ docs that no check enforces?"*
 4. It **comments**; it never approves or blocks. Agents are non-deterministic, and a gate that
    flakes gets switched off within a week.
 
-### Beat 4: first pass + human focus (60–71)
+**Discussion (~2 min, deck: *Four ways to build the judgement layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?", 1–4), then the chat prompt: *what would make your team mute a review bot?* Read two answers aloud, then land it: keep it advisory whatever runs it. Only the deterministic spec-diff may block.
+
+### Beat 4: first pass + human focus (67–81)
 
 | Show | Link |
 |---|---|
@@ -166,11 +173,12 @@ docs that no check enforces?"*
    - should the public API promise a list of codes?
 3. It does not answer them. Show the PR description's **human judgement** checkboxes. Those are
    the reviewer's to tick, and nobody else's.
-4. **Coda (1–2 min): [PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4).** *"Here's what it looked like after the human
+4. **Discussion (~3 min, deck: *Four ways to focus human review*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?", 1–4), then the chat prompt: *name one decision in your codebase that must stay human.* Read two answers aloud, then land it: an agent can point, but only these people can decide.
+5. **Coda (1–2 min): [PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4).** *"Here's what it looked like after the human
    decided."* Show the comparison table in its description: 162 lines became 46, and the two
    decisions from the review are in the code. CI ran on its own when the PR opened, and it's green.
 
-### Close (71–75)
+### Close (81–85)
 
 | Layer | Who | Verdict | Lives in |
 |---|---|---|---|
@@ -188,7 +196,7 @@ shown live: each layer stopped one real defect that got through the layers befor
 End on the repo link, for anyone who wants to replay it:
 **https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite** (README → *Learn on your own*).
 
-### Q&A 2 (75–90)
+### Q&A 2 (85–90)
 
 Open floor. The answers below are short on purpose: say the one line, then show the link.
 
