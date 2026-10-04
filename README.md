@@ -1,7 +1,8 @@
 # Agentic SDLC: lite
 
 A 90-minute masterclass on where agents belong in the software development lifecycle, and where
-they don't. One vague ticket goes from issue to reviewed pull request in four beats:
+they don't. One vague ticket goes from issue to reviewed pull request in four beats, then a
+harvest turns what the reviews found into checks that make the next pull request easier:
 
 | # | Beat | Who | Verdict | Lives in |
 |---|---|---|---|---|
@@ -10,6 +11,7 @@ they don't. One vague ticket goes from issue to reviewed pull request in four be
 | 3 | **Judgement**: is this the *right* thing, or overbuilt? | Agent, fresh session | **Comments** | [`review-pr`](.claude/skills/review-pr/SKILL.md) |
 | 4 | **Focus**: first pass, and where a human must look | Agent | **Points** | [`pr-focus`](.claude/skills/pr-focus/SKILL.md) |
 | — | **Decide** | Human | **Decides** | [PR template](.github/pull_request_template.md) |
+| ↺ | **Harvest**: each finding becomes a check, a rule, or a better skill | Agent proposes, human merges | **A PR** | [`harvest`](.claude/skills/harvest/SKILL.md), [`harvest/ledger.md`](harvest/ledger.md) |
 
 Everything lives in the repo, the issue, the PR and CI. The agents run in **Claude Code** or
 **Claude Cowork**, connected to the **GitHub MCP server**, and are given an issue or PR URL.
@@ -32,8 +34,14 @@ Nothing to install, no scripts to run.
   reviewer's decisions applied. 46 lines of code and tests instead of 162, and CI is green.
 - **[PR #5](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/5)** stays red on purpose: a small follow-up that fails all three CI checks,
   so you can see what a blocked pull request looks like. Don't merge it.
+- **`/harvest`** reads all three PRs and opens **[PR #6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/6)** with three proposals: a CI
+  **Scope** check that fails a PR changing files its spec doesn't list (it would have blocked
+  PR #3's `discounts.py`), the rounding decision as a rule in `AGENTS.md`, and a sharper
+  `refine-ticket`. The other 11 findings are logged, not proposed: six because CI already catches
+  them. A human merges it, and the next ticket starts easier.
 
-**CI green is not the same as the right thing.**
+**CI green is not the same as the right thing. And every review should leave the repo a little
+harder to get wrong.**
 
 ## Learn on your own
 
@@ -54,7 +62,10 @@ so read them in this order:
    (case-insensitive codes, round in the customer's favour) are in the code and in `specs/2.md`.
 6. **[PR #5](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/5)**, *Checks* tab: a pull request CI is blocking right now. Open each failed
    step and find the line that broke it.
-7. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
+7. **[PR #6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/6)**, *Description* and *Files changed*: the harvest. Read what it
+   proposed and, just as important, what it only logged. Then open
+   [`harvest/ledger.md`](harvest/ledger.md) on its branch: the memory the next harvest reads.
+8. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
    - Run `/refine-ticket <Issue #2 URL>`. It stops after its questions, waiting for a human.
      **That human is the Product Owner, and their answers are in
      [`course/product-owner/answers.md`](course/product-owner/answers.md).** Give them in the session
@@ -74,7 +85,8 @@ from [`course/product-owner/ticket.md`](course/product-owner/ticket.md), run `/r
 ```
 shop/                 the app: api -> service -> repo, ~30 lines
 tests/
-.claude/skills/       the three agent skills, each a single SKILL.md
+.claude/skills/       the four agent skills, each a single SKILL.md
+harvest/ledger.md     every finding /harvest has read, proposed or not
 .github/              CI and the PR template
 specs/                specs live here once written
 course/
