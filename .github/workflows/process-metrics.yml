@@ -1,0 +1,122 @@
+# Process metrics: outcomes a manager can read, from the repo's own PRs, CI runs and harvest ledger.
+# Runs every Monday and on demand (Actions → process-metrics → Run workflow). Writes the report to
+# the run summary; opens it as an issue on the schedule, or when you tick post_issue.
+# What each metric means, and the OpenTelemetry side (usage, cost): course/resources/measure/
+name: process-metrics
+
+on:
+  schedule:
+    - cron: "0 1 * * 1"  # Mondays 01:00 UTC
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "How many days back to measure"
+        default: "7"
+      post_issue:
+        description: "Also open the report as an issue"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pull-requests: read
+  actions: read
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Measure
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DAYS: ${{ inputs.days || '7' }}
+        run: |
+          python3 - <<'PY'
+          import datetime as dt
+          import json
+          import os
+          import re
+          import statistics
+          import subprocess
+
+          repo = os.environ["GITHUB_REPOSITORY"]
+          days = int(os.environ.get("DAYS") or 7)
+          now = dt.datetime.now(dt.timezone.utc)
+          since = (now - dt.timedelta(days=days)).date().isoformat()
+
+
+          def gh(*args):
+              return json.loads(subprocess.check_output(["gh", *args], text=True))
+
+
+          def ts(s):
+              return dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
+
+
+          prs = gh("pr", "list", "-R", repo, "--state", "all", "--limit", "200",
+                   "--search", f"created:>={since}",
+                   "--json", "number,body,createdAt,mergedAt,headRefName")
+          runs = gh("run", "list", "-R", repo, "--workflow", "ci.yml", "--event", "pull_request",
+                    "--limit", "500", "--json", "headBranch,conclusion,createdAt")
+          first_run = {}
+          for r in sorted(runs, key=lambda r: r["createdAt"]):
+              first_run.setdefault(r["headBranch"], r["conclusion"])
+
+          with_spec = first_red = rework = reviewed = findings = 0
+          merge_hours, harvest_opened, harvest_merged = [], 0, 0
+          for p in prs:
+              body = p["body"] or ""
+              with_spec += bool(re.search(r"^Spec:\s*`?specs/[\w-]+\.md", body, re.M))
+              first_red += first_run.get(p["headRefName"]) == "failure"
+              rework += "Supersedes #" in body
+              if p["headRefName"].startswith("harvest/"):
+                  harvest_opened += 1
+                  harvest_merged += bool(p["mergedAt"])
+              if p["mergedAt"]:
+                  merge_hours.append((ts(p["mergedAt"]) - ts(p["createdAt"])).total_seconds() / 3600)
+              comments = gh("pr", "view", str(p["number"]), "-R", repo, "--json", "comments")["comments"]
+              agent = [c["body"] for c in comments if c["body"].startswith("## Agent review")]
+              if agent:  # the latest agent review counts; re-runs don't double count
+                  reviewed += 1
+                  findings += len(re.findall(r"^\d+\. \*\*", agent[-1], re.M))
+
+          try:
+              ledger = sum(1 for line in open("harvest/ledger.md") if re.match(r"\d{4}-\d\d-\d\d", line))
+          except FileNotFoundError:
+              ledger = 0
+
+          n = len(prs)
+
+
+          def pct(k):
+              return f"{k}/{n} ({round(100 * k / n)}%)" if n else "–"
+
+
+          report = f"""## Process metrics: last {days} days (since {since})
+
+          | Metric | Value | Moving the right way |
+          |---|---|---|
+          | Pull requests opened | {n} | – |
+          | Name a spec (`Spec: specs/…`) | {pct(with_spec)} | up |
+          | Red on their **first** CI run | {pct(first_red)} | caught by CI, not in review |
+          | Agent review findings per reviewed PR | {f"{findings / reviewed:.1f} ({reviewed} reviewed)" if reviewed else "– (none reviewed)"} | down |
+          | Rework PRs (`Supersedes #`) | {pct(rework)} | down |
+          | Median hours, opened → merged | {f"{statistics.median(merge_hours):.1f} ({len(merge_hours)} merged)" if merge_hours else "– (none merged)"} | down |
+          | Harvest PRs opened / merged | {harvest_opened} / {harvest_merged} | steady |
+          | Harvest ledger lines on `main` | {ledger} | grows every ticket |
+
+          _Outcomes, not activity. Usage and cost come from Claude Code's OpenTelemetry export: see
+          `course/resources/measure/`. Never turn these into targets for individuals._
+          """
+          open("report.md", "w").write(report)
+          print(report)
+          PY
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Open the report as an issue
+        if: ${{ github.event_name == 'schedule' || inputs.post_issue }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --title "Process metrics: $(date -u +%F)" --body-file report.md

@@ -49,6 +49,18 @@ ever see it. It needs both tools installed where Claude Code runs.
 | 3 | **CODEOWNERS** | Changes to domain files automatically request review from the people who own those rules | [`CODEOWNERS.example`](focus/CODEOWNERS.example) · [GitHub docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) |
 | 4 | **Risk labels** | PRs touching money, auth or data paths get a label, and the label requires an extra reviewer | [actions/labeler](https://github.com/actions/labeler) |
 
+## Measure (for managers)
+
+Is it being used, what does it cost, and is the process working? See
+[`measure/README.md`](measure/README.md):
+
+- **Usage and cost:** Claude Code's OpenTelemetry export, switched on through managed settings
+  ([`managed-settings.example.json`](measure/managed-settings.example.json)). The
+  `claude_code.skill_activated` event shows whether the four skills actually run.
+- **Process outcomes:** [`process-metrics.yml`](../../.github/workflows/process-metrics.yml), a
+  weekly GitHub Action that reports PRs with a spec, first-run CI failures, review findings per PR,
+  rework, time to merge and harvest activity.
+
 ## Harvest
 
 Not a layer but the loop around them: [`harvest/SKILL.md`](../../.claude/skills/harvest/SKILL.md),
