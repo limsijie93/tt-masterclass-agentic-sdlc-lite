@@ -2,8 +2,7 @@
 
 PRODUCTS = {"tshirt": 2000, "mug": 1200, "poster": 800}  # price in cents
 
-DEFAULT_MAX_QTY = 10
-MAX_QTY_OVERRIDES: dict[str, int] = {}  # per-product limits, e.g. {"poster": 50}
+MAX_QTY = 10  # per product, per order. Changed in code: Ops' answer 4
 
 
 def get_price(sku: str) -> int:

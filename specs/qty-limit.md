@@ -16,4 +16,5 @@
 
 **Touches:** `shop/service.py` · `shop/repo.py` · `tests/`
 
-**Still open for human judgement:** none.
+**Decided in review:** an order line that is both over the limit and for an unknown product reports
+`unknown product: <sku>` first.
