@@ -30,6 +30,8 @@ Nothing to install, no scripts to run.
   the questions only they can answer: rounding, case sensitivity, API shape.
 - **[PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4)** is the same feature after review: cut to the spec, with the
   reviewer's decisions applied. 46 lines of code and tests instead of 162, and CI is green.
+- **[PR #5](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/5)** stays red on purpose: a small follow-up that fails all three CI checks,
+  so you can see what a blocked pull request looks like. Don't merge it.
 
 **CI green is not the same as the right thing.**
 
@@ -50,7 +52,9 @@ so read them in this order:
 5. **[PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4)**, *Files changed* tab: what PR #3 should have been. Compare the
    two diffs: the rule engine, stacking and expiry are gone, and the reviewer's two decisions
    (case-insensitive codes, round in the customer's favour) are in the code and in `specs/2.md`.
-6. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
+6. **[PR #5](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/5)**, *Checks* tab: a pull request CI is blocking right now. Open each failed
+   step and find the line that broke it.
+7. **Try it yourself.** In Claude Code or Cowork with the GitHub MCP server:
    - Run `/refine-ticket <Issue #2 URL>`. It stops after its questions, waiting for a human.
      **That human is the Product Owner, and their answers are in
      [`course/product-owner/answers.md`](course/product-owner/answers.md).** Give them in the session

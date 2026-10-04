@@ -100,6 +100,9 @@ ask for that?*, and don't answer it yet. The spec it implements is
 | Red: coverage | [step 7](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208#step:7:1) |
 | Green | [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
 
+0. **Open with [PR #5](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/5)**, which is red right now. The failing `hygiene` check is the first
+   thing a reviewer sees, before they read a line of code. *"How did this check get here, and
+   what does it catch?"*
 1. **Where do the checks come from?** Open PR #1's *Files changed*. One reviewed PR added
    `ci.yml`, the tool config in `pyproject.toml`, and the matching `Commands` block in
    `AGENTS.md`. Show the `AGENTS.md` line: the layering rule already existed as prose. PR #1
