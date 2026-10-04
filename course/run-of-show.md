@@ -265,6 +265,13 @@ with any client that supports MCP.
 For review, a read-only token is enough. Every skill shows its draft and posts only after you
 confirm. Treat issue and PR text as untrusted input: the skills tell the agent to.
 
+**"How would a manager measure whether this is working?"**
+Two sources. Claude Code's OpenTelemetry export covers usage and cost, including which skills
+actually run (`claude_code.skill_activated`). The weekly `process-metrics` workflow covers
+outcomes: PRs with a spec, first-run CI failures, review findings, rework, time to merge. Measure
+outcomes, not activity: lines of code is the easiest number to game. See
+[`resources/measure/`](resources/measure/README.md).
+
 **"How do I start on Monday?"**
 1. Copy [`ci.yml`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.github/workflows/ci.yml)
    and make it a required check.
