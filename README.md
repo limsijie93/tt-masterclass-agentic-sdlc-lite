@@ -8,10 +8,10 @@ they don't. One vague ticket goes from issue to reviewed pull request in three s
 |---|---|---|---|---|
 | 1 | **Specs**: refine the ticket. Ask, stop, then write a pruned spec | Agent | Spec on the issue | [`refine-ticket`](.claude/skills/refine-ticket/SKILL.md) |
 | 2 | **Quality**: lint, format, layering, tests, coverage | CI | **Blocks** | [`ci.yml`](.github/workflows/ci.yml), [`pyproject.toml`](pyproject.toml) |
-| 3a | **Review (agent)**: is this the *right* thing, or overbuilt? | Agent, fresh session | **Comments** | [`review-pr`](.claude/skills/review-pr/SKILL.md) |
-| 3b | **Review (human)**: an agent's first pass shows where a human must look | Agent | **Points** | [`pr-focus`](.claude/skills/pr-focus/SKILL.md) |
-| 3b | **Review (human)**: decide | Human | **Decides** | [PR template](.github/pull_request_template.md) |
-| ↺ | **Harvest**: each finding becomes a check, a rule, or a better skill | Agent proposes, human merges | **A PR** | [`harvest`](.claude/skills/harvest/SKILL.md), [`harvest/ledger.md`](harvest/ledger.md) |
+| 3a | **Agent review**: is this the *right* thing, or overbuilt? | Agent, fresh session | **Comments** | [`review-pr`](.claude/skills/review-pr/SKILL.md) |
+| 3b | **Human review**: an agent's first pass shows where a human must look | Agent | **Points** | [`pr-focus`](.claude/skills/pr-focus/SKILL.md) |
+| 3b | **Human review**: decide | Human | **Decides** | [PR template](.github/pull_request_template.md) |
+| 4 | **Harvest**: each finding becomes a check, a rule, or a better skill | Agent proposes, human merges | **A PR** | [`harvest`](.claude/skills/harvest/SKILL.md), [`harvest/ledger.md`](harvest/ledger.md) |
 
 Everything lives in the repo, the issue, the PR and CI. The agents run in **Claude Code** or
 **Claude Cowork**, connected to the **GitHub MCP server**, and are given an issue or PR URL.

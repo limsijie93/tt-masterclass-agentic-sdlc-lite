@@ -37,8 +37,8 @@ flowchart LR
   style B4 fill:#fdf1e4,stroke:#d9822b
 ```
 
-Four blocks: **1 · Specs**, **2 · Quality**, **3 · Review** and **4 · Harvest**. Review has two
-layers, the agent's (3a) and the human's (3b). Harvest isn't a layer a defect has to get through:
+The demo runs in four steps: **1 · Specs**, **2 · Quality**, **3 · Review** and **4 · Harvest**.
+The four Swiss cheese **layers** are Specs, Quality, Agent review (3a) and Human review (3b). Harvest isn't a layer a defect has to get through:
 it runs after the merge and turns each finding into a check, a rule or a sharper skill, so the
 layers have fewer holes on the next ticket.
 
