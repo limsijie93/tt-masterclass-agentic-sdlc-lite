@@ -37,7 +37,7 @@ Cowork is configured separately, in the admin console under **Data and privacy â
 | **Is the team following the process?** | `claude_code.skill_activated` events, by `skill.name`: how often `refine-ticket`, `review-pr`, `pr-focus` and `harvest` run, and whether people typed them (`user-slash`) or the agent chose them |
 
 The last row is the one this masterclass cares about. If `review-pr` runs on few PRs, the
-judgement layer isn't happening, whatever the PR count says.
+agent review isn't happening, whatever the PR count says.
 
 Reference: [Claude Code monitoring docs](https://code.claude.com/docs/en/monitoring-usage), the
 source for every variable and signal above.

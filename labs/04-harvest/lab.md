@@ -1,4 +1,4 @@
-# Lab 04 · Harvest, second sighting
+# Lab 04 · Harvest: a second sighting
 
 **Practises:** turning review findings into permanent rules, checks and better skills, and the
 restraint that makes it work. **Time:** about 20 minutes.

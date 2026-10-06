@@ -1,6 +1,6 @@
-# Beat 2: deterministic hygiene. Same input, same verdict, every time, so it is allowed to BLOCK.
+# Quality: deterministic hygiene checks. Same input, same verdict, every time, so they may BLOCK.
 # Make `hygiene` a required status check in branch protection.
-# No agent runs here. Judgement (beats 3 and 4) happens in Claude Code / Cowork, and only comments.
+# No agent runs here. Review (agent, then human) happens in Claude Code / Cowork, and only comments.
 
 name: ci
 

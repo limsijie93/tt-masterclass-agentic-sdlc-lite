@@ -1,7 +1,7 @@
-# Lab 03 · Review an overbuilt PR
+# Lab 03 · Review: an overbuilt PR
 
-**Practises:** judging a PR against its spec (not just its tests), then pointing a human at what
-only they can decide. **Time:** about 20 minutes.
+**Practises:** Review, both parts: the agent judges a PR against its spec (not just its tests),
+then points a human at what only they can decide. **Time:** about 20 minutes.
 
 An agent implemented lab 01's spec (`specs/qty-limit.md`) on the branch
 `labs/03-qty-limit-overbuilt`. Every CI check is green, at 100% coverage. Your job: decide whether

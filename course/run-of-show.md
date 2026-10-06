@@ -1,6 +1,6 @@
 # Run of show: 90 minutes, pure demo
 
-One ticket, four beats, a discussion after each beat, a harvest, two Q&A slots. Everything happens in an **Issue**, a **PR**, **CI**, and a
+One ticket, three segments (Specs → Quality → Review), a discussion after each part, a harvest, two Q&A slots. Everything happens in an **Issue**, a **PR**, **CI**, and a
 Claude Code or Cowork session connected to the **GitHub MCP server**.
 
 Every demo below links to the exact page to have open. Code links are pinned to a commit, so the
@@ -31,12 +31,12 @@ They are here so the setup can be rebuilt from scratch.
 | Time | Segment | Open this |
 |---|---|---|
 | 0–10 | Why | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2), then [`why.md`](why.md) |
-| 10–28 | **1 · Refine the ticket** | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) + session |
+| 10–28 | **1 · Specs**: refine the ticket | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) + session |
 | 28–31 | Bridge | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) |
-| 31–45 | **2 · Deterministic hygiene** | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [red run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208), [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
+| 31–45 | **2 · Quality**: deterministic checks | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [red run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208), [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
 | 45–50 | **Q&A 1**: planning and CI | — |
-| 50–64 | **3 · Agentic judgement** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + **new** session |
-| 64–77 | **4 · First pass + human focus** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + session |
+| 50–64 | **3a · Review (agent)** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + **new** session |
+| 64–77 | **3b · Review (human)**: first pass, then the human decides | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + session |
 | 77–81 | **Harvest** | [PR #6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/6) + session |
 | 81–85 | Close | the table at the bottom |
 | 85–90 | **Q&A 2**: open floor | [prepared answers](#prepared-answers) |
@@ -59,7 +59,7 @@ stalls for more than 60 seconds, switch to the expected output for that beat.
 4. Show the **Semgrep numbers**: the same prompt gives different results, and only 14–18% of
    findings are true positives. That is why the agent layer comments and never blocks.
 
-### Beat 1: refine the ticket (10–28)
+### Beat 1: Specs, refine the ticket (10–28)
 
 | Show | Link |
 |---|---|
@@ -77,10 +77,10 @@ stalls for more than 60 seconds, switch to the expected output for that beat.
    `product-owner/answers.md`, then tell the session *"The answers are on the issue. Continue."*
 4. It drafts the spec. Scroll to **Out of scope**: four things the ticket hinted at, cut, each
    with a reason. Then **Still open for human judgement**: rounding and case sensitivity. Those
-   come back in beat 4.
+   come back in Review (human).
 5. Let it post the spec to the issue.
 
-**Discussion (~1 min, deck: *Four ways to build the refine layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *which one does your team already half-do?* Read two answers aloud, then land it: these stack. An issue form collects the fields; the agent finds what's still missing.
+**Discussion (~1 min, deck: *Four ways to build the specs layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *which one does your team already half-do?* Read two answers aloud, then land it: these stack. An issue form collects the fields; the agent finds what's still missing.
 
 ### Bridge (28–31)
 
@@ -92,7 +92,7 @@ Its description proudly lists a rule registry, stacking and expiry. Plant the qu
 ask for that?*, and don't answer it yet. The spec it implements is
 [`specs/2.md`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/565a5277bd08c763501bd849449fc073312e898e/specs/2.md).
 
-### Beat 2: deterministic hygiene (31–45)
+### Beat 2: Quality, deterministic checks (31–45)
 
 | Show | Link |
 |---|---|
@@ -124,15 +124,15 @@ ask for that?*, and don't answer it yet. The spec it implements is
 4. The point: these checks give the same verdict every time, so they are allowed to **block**.
    Spend no human or agent attention on anything they can catch.
 
-**Discussion (~2 min, deck: *Three places to run the hygiene layer*).** Three places the same checks can run, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *where does your team run checks today?* Read two answers aloud, then land it: same rule, several enforcement points. CI is the one nobody can skip, so it's the one that blocks.
+**Discussion (~2 min, deck: *Three places to run the quality layer*).** Three places the same checks can run, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *where does your team run checks today?* Read two answers aloud, then land it: same rule, several enforcement points. CI is the one nobody can skip, so it's the one that blocks.
 
 ### Q&A 1 (45–50)
 
-Take questions on planning and CI only. Park anything about agent review until beat 3, and
+Take questions on planning and CI only. Park anything about agent review until Review, and
 anything else until Q&A 2. If the room is quiet, ask them: *"What's one rule in your team's
 docs that no check enforces?"*
 
-### Beat 3: agentic judgement (50–64)
+### Beat 3a: Review, agent (50–64)
 
 | Show | Link |
 |---|---|
@@ -152,9 +152,9 @@ docs that no check enforces?"*
 4. It **comments**; it never approves or blocks. Agents are non-deterministic, and a gate that
    flakes gets switched off within a week.
 
-**Discussion (~1 min, deck: *Four ways to build the judgement layer*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *what would make your team mute a review bot?* Read two answers aloud, then land it: keep it advisory whatever runs it. Only the deterministic spec-diff may block.
+**Discussion (~1 min, deck: *Four ways to build agent review*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *what would make your team mute a review bot?* Read two answers aloud, then land it: keep it advisory whatever runs it. Only the deterministic spec-diff may block.
 
-### Beat 4: first pass + human focus (64–77)
+### Beat 3b: Review, human (64–77)
 
 | Show | Link |
 |---|---|
@@ -194,7 +194,7 @@ docs that no check enforces?"*
    **no**: PR #6 is the one it opened earlier.
 3. Open [PR #6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/6). Three proposals, each to a different home:
    - a CI check, **Scope**: a PR fails if it changes a file its spec doesn't list under
-     Touches. It would have blocked PR #3's `discounts.py` outright. The judgement layer's
+     Touches. It would have blocked PR #3's `discounts.py` outright. The agent review's
      finding became a deterministic check.
    - `AGENTS.md` **Domain rules**: a fraction of a cent goes to the customer, so the next ticket
      doesn't re-decide it
@@ -209,11 +209,11 @@ docs that no check enforces?"*
 
 | Layer | Who | Verdict | Lives in |
 |---|---|---|---|
-| Plan and prune | Agent asks, human answers | Spec on the issue | [`refine-ticket`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.claude/skills/refine-ticket/SKILL.md) |
-| Hygiene | CI, deterministic | **Blocks** | [`ci.yml`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.github/workflows/ci.yml), [`pyproject.toml`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/pyproject.toml) |
-| Right thing? | Agent, fresh session | **Comments** | [`review-pr`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.claude/skills/review-pr/SKILL.md) |
-| Where to look | Agent first pass | **Points** | [`pr-focus`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.claude/skills/pr-focus/SKILL.md) |
-| Decide | Human | **Decides** | [PR template](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.github/pull_request_template.md) |
+| Specs | Agent asks, human answers | Spec on the issue | [`refine-ticket`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.claude/skills/refine-ticket/SKILL.md) |
+| Quality | CI, deterministic | **Blocks** | [`ci.yml`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.github/workflows/ci.yml), [`pyproject.toml`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/pyproject.toml) |
+| Review (agent): right thing? | Agent, fresh session | **Comments** | [`review-pr`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.claude/skills/review-pr/SKILL.md) |
+| Review (human): where to look | Agent first pass | **Points** | [`pr-focus`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.claude/skills/pr-focus/SKILL.md) |
+| Review (human): decide | Human | **Decides** | [PR template](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/main/.github/pull_request_template.md) |
 
 Never spend a layer's attention on something the layer below can catch.
 

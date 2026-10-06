@@ -1,4 +1,4 @@
-# Lab 02 · Make a rule bite
+# Lab 02 · Quality: make a rule bite
 
 **Practises:** turning a rule written in prose into a check that blocks the merge.
 **Time:** about 15 minutes, all in GitHub's web editor. No terminal.
@@ -41,6 +41,6 @@ production logs. Today that rule lives in people's heads, which means it lives n
 
 ## Go further
 
-Run the same check earlier: [`course/resources/hygiene/`](../../course/resources/hygiene/) has a
+Run the same check earlier: [`course/resources/quality/`](../../course/resources/quality/) has a
 pre-commit config and a Claude Code agent hook. Ruff reads `pyproject.toml`, so both pick up
 `T20` automatically. Same rule, three places.

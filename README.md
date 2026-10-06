@@ -1,16 +1,16 @@
 # Agentic SDLC: lite
 
 A 90-minute masterclass on where agents belong in the software development lifecycle, and where
-they don't. One vague ticket goes from issue to reviewed pull request in four beats, then a
-harvest turns what the reviews found into checks that make the next pull request easier:
+they don't. One vague ticket goes from issue to reviewed pull request in three segments,
+**Specs → Quality → Review**, then a harvest turns what the reviews found into checks that make the next pull request easier:
 
-| # | Beat | Who | Verdict | Lives in |
+| # | Segment | Who | Verdict | Lives in |
 |---|---|---|---|---|
-| 1 | **Refine the ticket**: ask, stop, then write a pruned spec | Agent | Spec on the issue | [`refine-ticket`](.claude/skills/refine-ticket/SKILL.md) |
-| 2 | **Hygiene**: lint, format, layering, tests, coverage | CI | **Blocks** | [`ci.yml`](.github/workflows/ci.yml), [`pyproject.toml`](pyproject.toml) |
-| 3 | **Judgement**: is this the *right* thing, or overbuilt? | Agent, fresh session | **Comments** | [`review-pr`](.claude/skills/review-pr/SKILL.md) |
-| 4 | **Focus**: first pass, and where a human must look | Agent | **Points** | [`pr-focus`](.claude/skills/pr-focus/SKILL.md) |
-| — | **Decide** | Human | **Decides** | [PR template](.github/pull_request_template.md) |
+| 1 | **Specs**: refine the ticket. Ask, stop, then write a pruned spec | Agent | Spec on the issue | [`refine-ticket`](.claude/skills/refine-ticket/SKILL.md) |
+| 2 | **Quality**: lint, format, layering, tests, coverage | CI | **Blocks** | [`ci.yml`](.github/workflows/ci.yml), [`pyproject.toml`](pyproject.toml) |
+| 3a | **Review (agent)**: is this the *right* thing, or overbuilt? | Agent, fresh session | **Comments** | [`review-pr`](.claude/skills/review-pr/SKILL.md) |
+| 3b | **Review (human)**: an agent's first pass shows where a human must look | Agent | **Points** | [`pr-focus`](.claude/skills/pr-focus/SKILL.md) |
+| 3b | **Review (human)**: decide | Human | **Decides** | [PR template](.github/pull_request_template.md) |
 | ↺ | **Harvest**: each finding becomes a check, a rule, or a better skill | Agent proposes, human merges | **A PR** | [`harvest`](.claude/skills/harvest/SKILL.md), [`harvest/ledger.md`](harvest/ledger.md) |
 
 Everything lives in the repo, the issue, the PR and CI. The agents run in **Claude Code** or
@@ -58,7 +58,7 @@ so read them in this order:
 3. **[PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3)**, *Commits* tab: the red CI run on the first commit, then green on the
    second.
 4. **PR #3**, *Conversation* tab: the agent review (overbuilt against the spec), then the
-   human-focus comment.
+   `/pr-focus` comment.
 5. **[PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4)**, *Files changed* tab: what PR #3 should have been. Compare the
    two diffs: the rule engine, stacking and expiry are gone, and the reviewer's two decisions
    (case-insensitive codes, round in the customer's favour) are in the code and in `specs/2.md`.
@@ -107,10 +107,10 @@ Agent output varies run to run. Compare the substance, not the wording.
 
 | Lab | Answer key | Model solution |
 |---|---|---|
-| [01 · Refine a ticket](labs/01-refine/lab.md) | [`expected-spec.md`](labs/01-refine/expected-spec.md) | the spec itself |
-| [02 · Make a rule bite](labs/02-make-a-rule-bite/lab.md) | [`expected.md`](labs/02-make-a-rule-bite/expected.md) | one line in `pyproject.toml`, shown in the answer key |
-| [03 · Review an overbuilt PR](labs/03-review-overbuilt/lab.md) | [`expected-review.md`](labs/03-review-overbuilt/expected-review.md), [`expected-focus.md`](labs/03-review-overbuilt/expected-focus.md) | [`labs/03-qty-limit-solution`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/tree/labs/03-qty-limit-solution) ([compare with the overbuilt version](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/compare/labs/03-qty-limit-overbuilt...labs/03-qty-limit-solution)) |
-| [04 · Harvest, second sighting](labs/04-harvest/lab.md) | [`expected.md`](labs/04-harvest/expected.md) | depends on your own review: judged by the checklist |
+| [01 · Specs: refine a ticket](labs/01-specs/lab.md) | [`expected-spec.md`](labs/01-specs/expected-spec.md) | the spec itself |
+| [02 · Quality: make a rule bite](labs/02-make-a-rule-bite/lab.md) | [`expected.md`](labs/02-make-a-rule-bite/expected.md) | one line in `pyproject.toml`, shown in the answer key |
+| [03 · Review: an overbuilt PR](labs/03-review-overbuilt/lab.md) | [`expected-review.md`](labs/03-review-overbuilt/expected-review.md), [`expected-focus.md`](labs/03-review-overbuilt/expected-focus.md) | [`labs/03-qty-limit-solution`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/tree/labs/03-qty-limit-solution) ([compare with the overbuilt version](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/compare/labs/03-qty-limit-overbuilt...labs/03-qty-limit-solution)) |
+| [04 · Harvest: a second sighting](labs/04-harvest/lab.md) | [`expected.md`](labs/04-harvest/expected.md) | depends on your own review: judged by the checklist |
 
 ## Files
 

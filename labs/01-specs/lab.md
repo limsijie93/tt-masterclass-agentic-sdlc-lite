@@ -1,4 +1,4 @@
-# Lab 01 · Refine a ticket
+# Lab 01 · Specs: refine a ticket
 
 **Practises:** ask, stop, prune, before any code exists. **Time:** about 15 minutes.
 

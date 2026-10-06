@@ -8,7 +8,7 @@ trying to make one layer perfect
 
 ```mermaid
 flowchart LR
-  T["Issue #2<br/>vague ticket"] --> R["1 · Refine"] --> C["2 · CI"] --> A["3 · Agent review"] --> H["4 · Human"] --> M(["Merge"])
+  T["Issue #2<br/>vague ticket"] --> R["1 · Specs"] --> C["2 · Quality"] --> A["3 · Agent review"] --> H["4 · Human review"] --> M(["Merge"])
   d1["silent guesses<br/>'all kinds of deals'"] --x R
   d2["unused import<br/>layer violation<br/>untested code"] --x C
   d3["overbuilt:<br/>registry, stacking, expiry"] --x A
@@ -25,10 +25,10 @@ passed CI with 100% coverage.
 
 | Layer | What it stops | Its hole | Covered by | See it |
 |---|---|---|---|---|
-| **1 · Refine** | Silent guesses. The agent asks before it builds | The answers can be wrong or incomplete | Review against the spec, then a human | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) |
-| **2 · CI** | Lint, layering, missing tests. Same verdict every time | Can't tell whether it's the *right* code: overbuilt code still goes green | Agent review | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [PR #3 checks](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3/checks) |
+| **1 · Specs** | Silent guesses. The agent asks before it builds | The answers can be wrong or incomplete | Review against the spec, then a human | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) |
+| **2 · Quality** (CI) | Lint, layering, missing tests. Same verdict every time | Can't tell whether it's the *right* code: overbuilt code still goes green | Agent review | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [PR #3 checks](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3/checks) |
 | **3 · Agent review** | Scope creep and needless abstraction, judged against the spec | Non-deterministic, and often wrong (see below) | It only comments; a human decides | [`review-pr`](../.claude/skills/review-pr/SKILL.md), [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) |
-| **4 · Human** | Business and domain calls that no spec settled | Limited attention, spent reading top to bottom | `pr-focus` points them at the 2–3 places that matter | [`pr-focus`](../.claude/skills/pr-focus/SKILL.md), [PR template](../.github/pull_request_template.md) |
+| **4 · Human review** | Business and domain calls that no spec settled | Limited attention, spent reading top to bottom | `pr-focus` points them at the 2–3 places that matter | [`pr-focus`](../.claude/skills/pr-focus/SKILL.md), [PR template](../.github/pull_request_template.md) |
 
 Two rules follow from the table:
 

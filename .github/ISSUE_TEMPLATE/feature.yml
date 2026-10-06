@@ -1,6 +1,6 @@
 # A GitHub issue form: "New issue" opens this form, and it can't be submitted until every
 # required field is filled. It checks that the fields exist, not that they're good:
-# /refine-ticket still reads what's in them. Jira equivalent: course/resources/refine/jira-ticket-template.md
+# /refine-ticket still reads what's in them. Jira equivalent: course/resources/specs/jira-ticket-template.md
 name: Feature request
 description: Ask for a change. Fill every required field so it can be refined and built.
 title: "[Feature] "
