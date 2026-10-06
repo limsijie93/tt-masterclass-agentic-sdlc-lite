@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ruff check --quiet . >&2 && lint-imports >/dev/null 2>&1 || { echo 'Hygiene failed: fix the ruff errors above, or run lint-imports to see the layering violation.' >&2; exit 2; }"
+          }
+        ]
+      }
+    ]
+  }
+}

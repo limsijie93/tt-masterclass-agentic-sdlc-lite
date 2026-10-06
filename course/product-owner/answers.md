@@ -21,6 +21,7 @@ your spec to differ a little from the expected one.
 | Expiry or usage limits? | No expiry for now. We'll ask engineering to remove a code when its campaign ends. |
 | A code that doesn't exist? | Reject it and tell the customer the code isn't valid. |
 | Who creates codes, and how often? | Engineering adds them. About three a quarter. |
+| How to round a fraction of a cent? | No view yet. Leave it open and let whoever reviews the code decide. |
 
 Ready to paste:
 
@@ -30,4 +31,5 @@ Ready to paste:
 3. No expiry for now. We'll ask engineering to remove a code when its campaign ends.
 4. Reject it and tell the customer the code isn't valid.
 5. Engineering adds them. About three a quarter.
+6. Rounding a fraction of a cent: no view yet. Leave it open and let whoever reviews the code decide.
 ```
