@@ -33,7 +33,7 @@ They are here so the setup can be rebuilt from scratch.
 | 0–10 | Why | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2), then [`why.md`](why.md) |
 | 10–28 | **1 · Specs**: refine the ticket | [Issue #2](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/issues/2) + session |
 | 28–31 | Bridge | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) |
-| 31–45 | **2 · Quality**: deterministic checks | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [red run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208), [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
+| 31–45 | **2 · Quality**: deterministic checks | [PR #1](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/1/files), [red run (PR #5)](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37166412723/job/111330112459), [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
 | 45–50 | **Q&A 1**: planning and CI | — |
 | 50–64 | **3a · Review (agent)** | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + **new** session |
 | 64–77 | **3b · Review (human)**: first pass, then the human decides | [PR #3](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3) + session |
@@ -100,11 +100,11 @@ ask for that?*, and don't answer it yet. The spec it implements is
 | The workflow | [`ci.yml`](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/b7965bf4e65c4b3b33e4b211c5e002d4c2703fcf/.github/workflows/ci.yml#L25-L37) |
 | The layering rule | [`pyproject.toml` L30–44](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/b7965bf4e65c4b3b33e4b211c5e002d4c2703fcf/pyproject.toml#L30-L44) |
 | The same rule as prose | [`AGENTS.md` L7](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/blob/b7965bf4e65c4b3b33e4b211c5e002d4c2703fcf/AGENTS.md#L7) |
-| PR #3's commits | [PR #3 → Commits](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/3/commits) |
-| Red: lint | [step 5](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208#step:5:1) |
-| Red: architecture | [step 6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208#step:6:1) |
-| Red: coverage | [step 7](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135350280/job/111238651208#step:7:1) |
-| Green | [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
+| The red PR | [PR #5](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/5) |
+| Red: lint | [step 5](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37166412723/job/111330112459#step:5:1) |
+| Red: architecture | [step 6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37166412723/job/111330112459#step:6:1) |
+| Red: coverage | [step 7](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37166412723/job/111330112459#step:7:1) |
+| Green (PR #3) | [green run](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/actions/runs/37135394587/job/111238778009) |
 
 0. **Open with [PR #5](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/5)**, which is red right now. The failing `hygiene` check is the first
    thing a reviewer sees, before they read a line of code. *"How did this check get here, and
@@ -113,14 +113,15 @@ ask for that?*, and don't answer it yet. The spec it implements is
    `ci.yml`, the tool config in `pyproject.toml`, and the matching `Commands` block in
    `AGENTS.md`. Show the `AGENTS.md` line: the layering rule already existed as prose. PR #1
    turned it into a check.
-2. **The red run** on PR #3's first commit. Open each step:
+2. **The red run** on PR #5 (recording R4). Open each step:
    - **Lint**: `F401 json imported but unused` at `shop/api.py:3`
    - **Architecture**: `api must not import repo BROKEN`. The agent read `AGENTS.md` and broke the
      rule anyway. Only the check stopped it.
-   - **Coverage**: `78.21%`, under the 90% floor, because new branches have no tests
+   - **Coverage**: `86.54%`, under the 90% floor, because the new helpers have no tests
    - All three ran even though the first failed (`!cancelled()` in `ci.yml`). One red run shows
-     every problem.
-3. **The green run** on the second commit fixes all three.
+     every problem. Back on PR #5, the merge button says *Merging is blocked*.
+3. **The green run** (recording R5): PR #3's first commit was red too, and its second commit fixes
+   it. Same checks, fixed code.
 4. The point: these checks give the same verdict every time, so they are allowed to **block**.
    Spend no human or agent attention on anything they can catch.
 
