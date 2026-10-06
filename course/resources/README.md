@@ -31,6 +31,11 @@ it is to skip, so the one nobody can skip is the one that blocks.
 with code 2, and Claude Code shows the message to the agent, which fixes the problem before you
 ever see it. It needs both tools installed where Claude Code runs.
 
+**When a review finding becomes a check.** If a machine can check what the agent review keeps
+finding, it moves out of Review and into this layer. `/harvest` did exactly that in
+[PR #6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/6): a **Scope** step in
+`ci.yml` fails any PR that changes files its spec doesn't list under *Touches*.
+
 ## Review: agent (slide 32)
 
 | # | Option | What it is | Resource |
@@ -38,7 +43,6 @@ ever see it. It needs both tools installed where Claude Code runs.
 | 1 | **On-demand skill, fresh session** (today) | `/review-pr` when you choose, judged against the spec | [`review-pr/SKILL.md`](../../.claude/skills/review-pr/SKILL.md) |
 | 2 | **Review bot on every PR** | An agent comments automatically in CI. Keep it advisory, never a required check | [claude-code-action](https://github.com/anthropics/claude-code-action) · [Copilot code review](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review) |
 | 3 | **A different model as reviewer** | The writer and the reviewer come from different vendors, so their blind spots are less likely to overlap | Run option 1 or 2 with a different model |
-| 4 | **Deterministic spec-diff** | A script fails any PR that changes files the spec doesn't list. Deterministic, so it may block | The **Scope** check in [PR #6](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/6) |
 
 ## Review: human (slide 37)
 

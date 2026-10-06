@@ -152,7 +152,7 @@ docs that no check enforces?"*
 4. It **comments**; it never approves or blocks. Agents are non-deterministic, and a gate that
    flakes gets switched off within a week.
 
-**Discussion (~1 min, deck: *Four ways to build agent review*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *what would make your team mute a review bot?* Read two answers aloud, then land it: keep it advisory whatever runs it. Only the deterministic spec-diff may block.
+**Discussion (~1 min, deck: *Three ways to build agent review*).** Three ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *what would make your team mute a review bot?* Read two answers aloud, then land it: keep it advisory whatever runs it. When a finding is something a machine can check, it stops being review: harvest moves it into CI, as the Scope check in PR #6.
 
 ### Beat 3b: Review, human (64–77)
 
@@ -174,7 +174,7 @@ docs that no check enforces?"*
    - should the public API promise a list of codes?
 3. It does not answer them. Show the PR description's **human judgement** checkboxes. Those are
    the reviewer's to tick, and nobody else's.
-4. **Discussion (~2 min, deck: *Four ways to focus human review*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *name one decision in your codebase that must stay human.* Read two answers aloud, then land it: an agent can point, but only these people can decide.
+4. **Discussion (~2 min, deck: *Four ways to build human review*).** Four ways to build this layer, today's marked. Launch the poll ("which would your team start with?"), then the chat prompt: *name one decision in your codebase that must stay human.* Read two answers aloud, then land it: an agent can point, but only these people can decide.
 5. **Coda (1–2 min): [PR #4](https://github.com/limsijie93/tt-masterclass-agentic-sdlc-lite/pull/4).** *"Here's what it looked like after the human
    decided."* Show the comparison table in its description: 162 lines became 46, and the two
    decisions from the review are in the code. CI ran on its own when the PR opened, and it's green.
