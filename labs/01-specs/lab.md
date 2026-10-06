@@ -32,7 +32,7 @@ an agent can build and a teammate can disagree with.
 
 ## Answer key
 
-[`expected-spec.md`](expected-spec.md). Lab 03 builds this exact spec, overbuilt.
+[`expected-spec.md`](expected-spec.md). Lab 03's branch builds a spec like it (`specs/qty-limit.md`), overbuilt.
 
 ## Why it matters
 
