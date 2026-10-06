@@ -124,15 +124,12 @@ harvest/ledger.md     every finding /harvest has read, proposed or not
 specs/                specs live here once written
 course/
   why.md              why four layers: the Swiss cheese model, with sources
-  run-of-show.md      the 90 minutes, beat by beat, plus setup
   seed-pr.md          PR #3 body
   product-owner/      the Product Owner's ticket (Issue #2) and answers to the agent's questions
   expected-outputs/   what each agent should produce, to compare your run against
   resources/          every option on the discussion slides: templates, examples, links
 labs/                 four take-home labs, each with steps, a checklist and an answer key
 ```
-
-**Presenting?** Start with [`course/run-of-show.md`](course/run-of-show.md).
 
 **Using the skills elsewhere?** Each one is a single file. Copy the folder into your repo's
 `.claude/skills/`, or upload it as a skill in Cowork.
