@@ -75,3 +75,5 @@ Write the spec, and post it as a comment on the issue once the user confirms:
   Rewrite it or move it to out of scope.
 - Never skip the stop in Phase 1. A spec built on your own answers is the failure this skill
   exists to prevent.
+- A guess that changes a test's expected value (rounding, case, ordering, limits) is a Phase 1
+  question, never a "Still open" line. Left open, the builder guesses and the guess ships.
